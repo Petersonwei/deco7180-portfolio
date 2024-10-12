@@ -1,0 +1,95 @@
+/* Slideshow Section */
+.slideshow-section {
+  padding: 4rem 0;
+  background-color: var(--secondary-bg);
+}
+
+/* Slideshow Container */
+.slideshow-container {
+  position: relative;
+  max-width: 80%; 
+  margin: auto;
+  overflow: hidden; 
+  border-radius: 10px; 
+}
+
+/* Slides */
+.mySlides {
+  display: none;
+  height: 80vh; 
+}
+
+.mySlides img {
+  width: 100%;
+  height: 100%; 
+  object-fit: cover; 
+  vertical-align: middle;
+}
+
+/* Caption Text */
+.text {
+  color: var(--text-light);
+  font-size: 1.6rem;
+  padding: 1rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Number Text */
+.numbertext {
+  color: var(--text-light);
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  position: absolute;
+  top: 0;
+}
+
+/* Next & Previous Buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 1rem;
+  color: var(--text-light);
+  font-weight: bold;
+  font-size: 2rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.prev {
+  left: 0;
+  border-radius: 0 0.5rem 0.5rem 0;
+  background-color: rgba(117, 117, 117, 0.8);
+}
+
+.next {
+  right: 0;
+  border-radius: 0.5rem 0 0 0.5rem;
+  background-color: rgba(117, 117, 117, 0.8);
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Active dot styling */
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading Animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
