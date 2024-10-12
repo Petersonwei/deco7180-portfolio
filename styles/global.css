@@ -118,13 +118,21 @@ header {
 
 /* Hero Section */
 .hero {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     height: 100vh;
-    background-color: var(--secondary-bg);
-    margin-top: 80px; /* Prevents being hidden by fixed navbar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, var(--primary-bg), var(--secondary-bg), var(--light-bg));
+    background-size: 300% 300%;
+    animation: gradient-animation 4s ease infinite;
 }
+
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 
 /* Buttons */
 .btn {

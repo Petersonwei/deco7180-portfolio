@@ -1,0 +1,22 @@
+.text-animation h3 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--accent);
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid var(--accent); 
+    animation: blink-caret 0.75s step-end infinite;
+
+/* Blinking caret */
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--accent); }
+}
+
+/* Typing effect */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+}
