@@ -1,7 +1,8 @@
 /**
  * Reference:
  * W3Schools. (2024). How to - Slideshow. https://www.w3schools.com/howto/howto_js_slideshow.asp
- */
+ * W3Schools. (2024). How to create a modal image gallery 
+ * (lightbox) with CSS and JavaScript. W3Schools. https://www.w3schools.com/howto/howto_js_lightbox.asp
  
 /* Slideshow Section */
 .slideshow-section {
@@ -97,4 +98,101 @@
 @keyframes fade {
   from { opacity: 0.4; }
   to { opacity: 1; }
+}
+
+/* Hover effect for slideshow images */
+.mySlides img:hover {
+  transform: scale(1.05); 
+  transition: transform 0.3s ease;
+}
+
+/* Modal Styles */
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); 
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  position: relative;
+  margin: auto;
+  max-width: 80%;
+  max-height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modalImage {
+  width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Ensure the image scales properly */
+  border-radius: 5px; 
+}
+
+/* Modal Close Button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: var(--text-light);
+  font-size: 3rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close:hover {
+  color: var(--accent); 
+}
+
+/* Modal Navigation Buttons */
+.prevModal, .nextModal {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 1rem;
+  color: var(--text-light); 
+  font-weight: bold;
+  font-size: 3rem;
+  transition: background-color 0.3s ease; 
+}
+
+.prevModal {
+  left: 0;
+  border-radius: 0 5px 5px 0; 
+  background-color: rgba(117, 117, 117, 0.8); 
+}
+
+.nextModal {
+  right: 0;
+  border-radius: 5px 0 0 5px; 
+  background-color: rgba(117, 117, 117, 0.8);
+}
+
+.prevModal:hover, .nextModal:hover {
+  background-color: rgba(0, 0, 0, 0.8); 
+}
+
+/* Modal Animation */
+@keyframes fadeInModal {
+  from {
+      opacity: 0;
+      transform: scale(0.95); 
+  }
+  to {
+      opacity: 1;
+      transform: scale(1);
+  }
+}
+
+.modal.show {
+  display: flex;
+  animation: fadeInModal 0.3s ease; 
 }
