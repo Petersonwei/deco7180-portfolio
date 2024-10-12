@@ -154,6 +154,7 @@ header {
     outline: 3px solid var(--secondary-bg);
 }
 
+
 /* Sections */
 section {
     padding: 4rem 0;
@@ -296,4 +297,59 @@ p {
 ::-webkit-scrollbar-thumb {
     background-color: var(--accent);
     border-radius: 10px;
+}
+
+
+
+
+/* Back to Top Button - Smaller, Subtle, and Improved UX */
+.back-to-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    display: none;
+    background-color: var(--accent);
+    color: var(--text-light);
+    padding: 0.8rem 1.2rem;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    transition: background 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover and Focus States for Better Interaction */
+.back-to-top-btn:hover, .back-to-top-btn:focus {
+    background-color: var(--light-bg);
+    color: var(--primary-bg);
+    transform: scale(1.1); /* Slightly larger on hover for feedback */
+}
+
+.back-to-top-btn:active {
+    transform: scale(0.95); /* Shrinks slightly on click */
+}
+
+/* Subtle Animation for Showing the Button */
+.back-to-top-btn.show {
+    display: block;
+    opacity: 1;
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Accessibility Improvement */
+.back-to-top-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--secondary-bg);
 }

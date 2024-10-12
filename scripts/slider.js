@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Show the slide base on index
     function showSlide(index) {
         slideIndex = (index + slides.length) % slides.length; // Wrap index
-        slides.forEach((slide, i) => {
+                slides.forEach((slide, i) => {
             slide.style.display = i === slideIndex ? "block" : "none"; // Toggle visibility
         });
     }

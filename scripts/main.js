@@ -1,5 +1,6 @@
 import './typeWrite.js';
 import './slider.js';
+import './backToTop.js';
 
 //Mobile Menu
 document.getElementById('menu-icon').addEventListener('click', function() {
@@ -17,4 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
+
 

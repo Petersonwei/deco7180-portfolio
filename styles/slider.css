@@ -1,3 +1,8 @@
+/**
+ * Reference:
+ * W3Schools. (2024). How to - Slideshow. https://www.w3schools.com/howto/howto_js_slideshow.asp
+ */
+ 
 /* Slideshow Section */
 .slideshow-section {
   padding: 4rem 0;
@@ -78,7 +83,7 @@
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Active dot styling */
+/* Active */
 .active, .dot:hover {
   background-color: #717171;
 }
