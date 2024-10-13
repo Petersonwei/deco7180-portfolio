@@ -10,8 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const containerWidth = document.querySelector('.skills-slider').offsetWidth;
 
-    // Clone items until the total width of the track is enough to fill at least twice the container width
-    while (totalWidth < containerWidth * 2) { // Ensure twice the container width to loop smoothly
+    // Clone items to show loop
+    while (totalWidth < containerWidth * 2) { 
         items.forEach(item => {
             const clone = item.cloneNode(true);
             track.appendChild(clone);

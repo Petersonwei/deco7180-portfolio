@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SimpleIcons. (2024). SimpleIcons: Free SVG icons for popular brands [Icon library]. SimpleIcons. https://simpleicons.org -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons.min.css">
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <link rel="stylesheet" href="/styles/global.css">
     <link rel="stylesheet" href="/styles/layout.css">
@@ -65,7 +67,7 @@
                 </div>                                 
             </div>
         
-            <section id="skills" class="skills-section fade-in-section">
+            <section id="skills" class="skills-section projects-section fade-in-section">
                 <div class="container">
                     <h2>Skills</h2>
                     <div class="skills-slider">
@@ -100,7 +102,17 @@
                 </div>
             </section>
                   
-        </section>        
+        </section>
+        
+        <!-- Project Section -->
+        <section id="fade-in-effect" class="fade-in-section">
+            <div class="container">
+                <h2 class="text-center">Project - DingDingGo</h2>
+                <p class="fade-in-text">
+                    Hey everyone! I am Peter Wei, a software engineering / Web Developer. I am studying for a Master of IT at the University of Queensland. I have experience with exciting projects, like building a start-up website and designing the Rotary Club of Brisbane's website. I am passionate about the IT Project and ready to explore new challenges!
+                </p>
+            </div>
+        </section>
         
 
         <!-- Projects Section with Clickable Timeline and Fade-In Effect -->
@@ -185,7 +197,6 @@
                         </a>
                     </div>
                     <!-- Final Celebration Timeline Item -->
-                    <!-- Final Celebration Timeline Item -->
                     <div class="timeline-item celebration">
                         <div class="timeline-icon confetti">🎉</div>
                         <div class="timeline-content celebration-content">
@@ -213,19 +224,9 @@
         </section>
 
         
-
-        <!-- Faded Text Section -->
-        <section id="fade-in-effect" class="fade-in-section">
-            <div class="container">
-                <h2 class="text-center">Project - DingDingGo</h2>
-                <p class="fade-in-text">
-                    Hey everyone! I am Peter Wei, a software engineering / Web Developer. I am studying for a Master of IT at the University of Queensland. I have experience with exciting projects, like building a start-up website and designing the Rotary Club of Brisbane's website. I am passionate about the IT Project and ready to explore new challenges!
-                </p>
-            </div>
-        </section>
-
-         <!-- Slideshow Section -->
-        <section id="slideshow" class="slideshow-section">
+        
+        <!-- Slideshow Section -->
+        <section id="slideshow" class="fade-in-section">
             <div class="container">
                 <div class="slideshow-container">
 
@@ -265,16 +266,49 @@
             </div>
         </div>
 
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <div class="container text-center">
-                <h2>Contact Me</h2>
-                <form>
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
+
+
+        
+
+        <!-- Paper Review & Course Reflection Section -->
+        <section id="paper-review" class="projects-section interactive-section fade-in-section">
+            <h2 class="text-center">Paper Review & Course Reflection</h2>
+            <div class="container">
+                <div class="interactive-container">
+                    <!-- Interactive Paper Review (Flip Card) -->
+                    <div class="interactive-item flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <i class="fas fa-file-alt icon"></i> <!-- Paper icon -->
+                                <h3>Paper Review</h3>
+                                <p>Click to review the paper insights</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <a href="paper-review.html" class="interactive-link">
+                                    <h3>Read Paper Review</h3>
+                                    <p>Delve into the key details and insights from the paper.</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Course Reflection (Flip Card) -->
+                    <div class="interactive-item flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <i class="fas fa-comments icon"></i> <!-- Reflection icon -->
+                                <h3>Course Reflection</h3>
+                                <p>Click to see reflections from the course</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <a href="course-reflection.html" class="interactive-link">
+                                    <h3>Read Course Reflection</h3>
+                                    <p>Explore key takeaways and experiences from the course.</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         <!-- Back to Top Button -->
@@ -290,7 +324,7 @@
                 <a href="#" class="text-light">LinkedIn</a>
             </div>
             <div class="copyright">
-                &copy; 2024 My Website. All Rights Reserved.
+                &copy; DECO7180 Design Studio 1 - 2024 Tzu Hsaing (Peter) Wei . All Rights Reserved.
             </div>
         </div>
     </footer>
