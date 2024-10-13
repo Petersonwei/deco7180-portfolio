@@ -4,49 +4,72 @@
  * and selecting text. GitHub. https://github.com/mrvautin/typewrite
  */
 
-const texts = ["Web Developer", "Software Engineer"];
-let count = 0;
-let letterIndex = 0;
-let typingSpeed = 150;
-let deletingSpeed = 100;
-let pauseBetweenWords = 2000;
-let isDeleting = false;
+const texts = [];class TypewriterEffect extends HTMLElement {
+    constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
+    }
 
-const textElement = document.querySelector('.text-animation h3');
+    connectedCallback() {
+        const typingSpeed = parseInt(this.getAttribute('typing-speed')) || 150;
+        const deletingSpeed = parseInt(this.getAttribute('deleting-speed')) || 100;
+        const pauseBetweenWords = parseInt(this.getAttribute('pause')) || 2000;
 
-/**
- * typeAnimation - Handles typing and deleting of text phrases.
- * Types out phrases from the `texts` array and deletes them, with pauses in 
- * between. Call this to start the animation.
- */
-function typeAnimation() {
-    let currentText = texts[count];
-    textElement.textContent = currentText.substring(0, letterIndex);
+        this.shadowRoot.innerHTML = `
+            <style>
+                :host {
+                    display: inline-block;
+                }
+                .typewriter::after {
+                    content: '|';
+                    animation: blink 0.7s infinite;
+                }
+                @keyframes blink {
+                    0% { opacity: 1; }
+                    50% { opacity: 0; }
+                    100% { opacity: 1; }
+                }
+            </style>
+            <span class="typewriter"></span>
+        `;
 
-    if (!isDeleting) {
-        // Typing the word
-        if (letterIndex < currentText.length) {
-            letterIndex++;
-            setTimeout(typeAnimation, typingSpeed);
-        } else {
-            // Pause before deleting
-            setTimeout(() => {
-                isDeleting = true;
-                setTimeout(typeAnimation, deletingSpeed);
-            }, pauseBetweenWords);
+        const textElement = this.shadowRoot.querySelector('.typewriter');
+        const texts = Array.from(this.children).map(child => child.textContent.trim());
+
+        let count = 0;
+        let letterIndex = 0;
+        let isDeleting = false;
+
+        function typeAnimation() {
+            let currentText = texts[count];
+            textElement.textContent = currentText.substring(0, letterIndex);
+
+            if (!isDeleting) {
+                if (letterIndex < currentText.length) {
+                    letterIndex++;
+                    setTimeout(typeAnimation, typingSpeed);
+                } else {
+                    setTimeout(() => {
+                        isDeleting = true;
+                        setTimeout(typeAnimation, deletingSpeed);
+                    }, pauseBetweenWords);
+                }
+            } else {
+                if (letterIndex > 0) {
+                    letterIndex--;
+                    setTimeout(typeAnimation, deletingSpeed);
+                } else {
+                    isDeleting = false;
+                    count = (count + 1) % texts.length;
+                    setTimeout(typeAnimation, typingSpeed);
+                }
+            }
         }
-    } else {
-        // Deleting the word
-        if (letterIndex > 0) {
-            letterIndex--;
-            setTimeout(typeAnimation, deletingSpeed);
-        } else {
-            // Move to next word
-            isDeleting = false;
-            count = (count + 1) % texts.length;
-            setTimeout(typeAnimation, typingSpeed);
+
+        if (texts.length > 0) {
+            typeAnimation();
         }
     }
 }
 
-typeAnimation();
+customElements.define('typewriter-effect', TypewriterEffect);

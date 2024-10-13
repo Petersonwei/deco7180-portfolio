@@ -88,7 +88,8 @@ header {
 }
 
 .nav-links li a:hover {
-    color: var(--accent);
+    color: var(--secondary-bg);
+    text-decoration: underline;
 }
 
 .menu-icon {
@@ -122,8 +123,8 @@ header {
 
     .nav-links li a {
         color: var(--text-dark); 
-        font-size: 20px;
-        padding: 1rem;
+        font-size: 15px;
+        padding: 0.3rem;
         text-align: center;
         text-decoration: none;
         display: block;

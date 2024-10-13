@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SimpleIcons. (2024). SimpleIcons: Free SVG icons for popular brands [Icon library]. SimpleIcons. https://simpleicons.org -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons.min.css">
+    <!-- Font Awesome. (2024). Font Awesome icons [Font stylesheet]. https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="/styles/global.css">
+    <link rel="stylesheet" href="/styles/animation.css">
+    <link rel="stylesheet" href="/styles/slider.css">
+    <link rek="stylesheet" href="/styles/assesment.css">
+</head>
+
+<body>
+    <!-- Header & Navbar -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="text-dark">Back to Home</a></li>
+                    <li><a href="assessment2.html" class="text-dark" style="text-decoration: underline;">2 - Annotated Portfolio</a></li>
+                    <li><a href="assessment3.html" class="text-dark">3 - Design Concept</a></li>
+                    <li><a href="assessment4a.html" class="text-dark">4A - Team Charter</a></li>
+                    <li><a href="assessment4b.html" class="text-dark">4B - Design Proposal</a></li>
+                    <li><a href="assessment4c.html" class="text-dark">4C - MVP</a></li>
+                    <li><a href="assessment4d.html" class="text-dark">4D - Final Prototype</a></li>
+                    <li><a href="assessment4e.html" class="text-dark">4E - Final Report</a></li>
+                </ul>
+                <div class="menu-icon" id="menu-icon">&#9776;</div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container text-center">
+                <h1 class="text-dark">The Topic I've Learned in Part 2 - Annotated Portfolio:</h1>
+                <div class="text-animation">
+                    <h3>
+                        <typewriter-effect typing-speed="150" deleting-speed="100" pause="2000">
+                            <span>Web development</span>
+                        </typewriter-effect>
+                    </h3>
+                </div>
+                <p>I design and develop my own portfolio.</p>
+                <a href="#about" class="btn">See My Reflection</a>
+            </div>
+        </section>
+        
+        <!-- Portfolio Overview -->
+        <section id="portfolio-overview" class="fade-in-section">
+            <div class="container">
+                <h2 class="text-center">Portfolio Overview</h2>
+                <div class="slideshow-container" data-slideshow-id="portfolio-slideshow">
+                    <div class="slides-wrapper">
+                        <!-- Slides -->
+                        <div class="mySlides fade">
+                            <div class="numbertext">1 / 3</div>
+                            <img src="src/site-map copy 2.jpg" alt="Image 1">
+                            <div class="text">Caption One</div>
+                        </div>
+        
+                        <div class="mySlides fade">
+                            <div class="numbertext">2 / 3</div>
+                            <img src="src/site-map copy.png" alt="Image 2">
+                            <div class="text">Caption Two</div>
+                        </div>
+        
+                        <div class="mySlides fade">
+                            <div class="numbertext">3 / 3</div>
+                            <img src="src/site-map.png" alt="Image 3">
+                            <div class="text">Caption Three</div>
+                        </div>
+                    </div>
+        
+                    <!-- Next and prev buttons -->
+                    <a class="prev" data-slideshow-nav="prev">&#10094;</a>
+                    <a class="next" data-slideshow-nav="next">&#10095;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Requirements -->
+        <section id="about" class="fade-in-section">
+            <div class="container">
+                <h2 class="text-center">Project Requirements</h2>
+                <p>This week, I started working on my Annotated Process Portfolio for DECO1800/7180. The requirements include creating a personal portfolio from scratch without using pre-made templates or frameworks like Bootstrap or React. The focus is on demonstrating my skills in HTML, CSS, and JavaScript, ensuring all content is original and showcasing my individual contributions.</p>
+            </div>
+        </section>
+
+        <!-- Ideation -->
+        <section id="ideation" class="fade-in-section">
+            <div class="container">
+                <h2 class="text-center">Ideation</h2>
+                <p>I explored various inspirations for my portfolio’s design. I referred to examples from previous students, including Anastasia Laczko, Connor Wiegmink, and Michelle Owen, to understand different styles and approaches. I also looked at websites such as CSS Zen Garden, Behance, and Abduzeedo to brainstorm potential design elements that I could incorporate into my portfolio. The design inspiration helped me shortlist elements like minimalistic navigation, a cohesive color scheme, and interaction through hover effects.</p>
+            </div>
+        </section>
+
+        <!-- Research -->
+        <section id="research" class="fade-in-section projects-section">
+            <div class="container">
+                <h2 class="text-center">Research</h2>
+                <p>I reviewed resources on Adobe Color to develop a cohesive color palette for the website. I also explored CSS techniques to enhance the portfolio's usability and visual aesthetics, such as creating sticky navigation bars and using JavaScript animations. Researching different elements was insightful, and I felt excited as I experimented with color schemes and layouts.</p>
+            </div>
+        </section>
+
+        <!-- My Contribution -->
+        <section id="my-contribution" class="fade-in-section">
+            <div class="container">
+                <h2 class="text-center">My Contribution</h2>
+                <p>My contributions to the team project so far include creating sketches of the different possible layouts for my portfolio. I made three different sketches that feature variations in navigation placement and how content is presented. I chose one that felt the most natural to the intended flow of my portfolio, focusing on user experience.</p>
+            </div>
+        </section>
+
+        <!-- Reflection -->
+        <section id="reflection" class="fade-in-section">
+            <div class="container">
+                <h2 class="text-center">Reflection</h2>
+                <p>This week, I worked on the planning phase of my portfolio by gathering inspiration, creating sketches, and deciding on key design elements. Initially, I felt overwhelmed by the variety of design directions I could take, but as I finalized my layout, I felt much more focused. Reviewing examples of past portfolios was beneficial, as it helped me avoid making beginner mistakes. In the future, I need to delve deeper into understanding the technical implementation of designs rather than just analyzing their aesthetics.</p>
+            </div>
+            <div class="button-container">
+                <a href="index.html" class="btn btn-secondary">
+                    <i class="fas fa-home"></i> Back to Home
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Fullscreen Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <img src="" id="modalImage" alt="Modal Image" />
+            <a class="prevModal">&#10094;</a>
+            <a class="nextModal">&#10095;</a>
+        </div>
+    </div>
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn" class="back-to-top-btn" title="Go to top">Go to top ↑</button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <div class="copyright">
+                &copy;  2024 Tzu Hsaing (Peter) Wei - UQ DECO7180 . All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="scripts/main.js"></script>
+</body>
+</html>
