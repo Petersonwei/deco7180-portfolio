@@ -20,3 +20,437 @@
     to { width: 100%; }
 }
 }
+
+
+/* Fade-In Text Effect */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20vh);
+    visibility: hidden;
+    transition: opacity 0.6s ease-out, transform 1.2s ease-out;
+    will-change: opacity, visibility;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+}
+
+.fade-in-text {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-text.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+
+/* Basic link styles with underline */
+.hype-link {
+    color: var(--accent);
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: underline;
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.2s ease, transform 0.2s ease, text-decoration 0.2s ease;
+}
+
+/* Hover effect */
+.hype-link:hover, .hype-link:focus {
+    background-color: var(--light-bg);
+    color: var(--primary-bg);
+    text-decoration: none; 
+    transform: scale(1.05);
+}
+
+/* Active state */
+.hype-link:active {
+    transform: scale(0.98);
+}
+
+
+.skills-section {
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.skills-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.skills-track {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    animation: scroll 30s linear infinite;
+}
+
+.skill-item {
+    background: linear-gradient(135deg, var(--primary-bg), var(--secondary-bg));
+    border-radius: 0.5rem;
+    width: 120px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: scale(1.05);
+}
+
+.skill-item img {
+    width: 50px;
+    height: auto;
+    margin-bottom: 0.5rem;
+}
+
+.skill-item span {
+    color: var(--accent);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+a.skill-item {
+    text-decoration: none;
+    color: inherit; 
+}
+
+/* Smooth scroll animation */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
+/* Profile container */
+.profile-container {
+    position: relative;
+    width: 350px; 
+    height: 350px; 
+    margin: auto;
+    overflow: hidden;
+    border-radius: 20px; 
+}
+
+/* LinkedIn profile image */
+.profile-picture {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none; 
+    overflow: hidden;
+    border-radius: inherit; 
+    transition: transform 0.3s ease; 
+}
+
+/* Profile image styling */
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: inherit; 
+    transition: transform 0.3s ease; 
+}
+
+/* LinkedIn icon styling */
+.linkedin-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
+    z-index: 2; 
+}
+
+.linkedin-icon img {
+    width: 100%;
+    height: auto;
+}
+
+/* Show LinkedIn icon on hover */
+.profile-picture:hover .linkedin-icon {
+    opacity: 1; 
+}
+
+/* Overlay rounded corners */
+.profile-picture::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(254, 253, 253, 0.492); 
+    border-radius: inherit; 
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
+    z-index: 1; 
+}
+
+/* Hover effects */
+.profile-picture:hover::before {
+    opacity: 1; 
+}
+
+.profile-picture:hover .profile-img {
+    transform: scale(1.1); 
+}
+
+/*```````````````````````````````````````````*/
+/* Timeline style */
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* Timeline line: continuous vertical line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 22px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: var(--accent);
+    z-index: -1;
+}
+
+/* Timeline item */
+.timeline-item {
+    position: relative;
+    margin: 2rem 0;
+    padding-left: 60px;
+}
+
+/* Center the circle on the timeline line */
+.timeline-icon {
+    position: absolute;
+    left: 10px; /* Adjust to align the circle with the timeline */
+    top: 50%;
+    transform: translateY(-50%); /* Vertically center the icon */
+    background-color: var(--accent);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.4rem;
+    z-index: 1;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Clickable links within the timeline */
+.timeline-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Timeline content with improved interaction */
+.timeline-content {
+    background-color: var(--primary-bg);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+}
+
+/* Make content visible on scroll */
+.timeline-item.is-visible .timeline-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hover interaction to indicate clickable content */
+.timeline-link:hover .timeline-content {
+    background-color: var(--secondary-bg);
+    cursor: pointer;
+    transform: scale(1.02); /* Slight zoom to show it's clickable */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Add a shadow effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-link:hover .timeline-icon {
+    background-color: var(--light-bg); /* Change icon color on hover */
+    transform: scale(1.2); /* Slightly enlarge the icon on hover */
+}
+
+/* Fade-in animation */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile responsiveness */
+/* Mobile responsiveness adjustments */
+@media (max-width: 768px) {
+    .timeline-item {
+        padding-left: 30px; /* Reduce padding for smaller screens */
+    }
+
+    .timeline::before {
+        left: 15px; /* Align the vertical line to the center of the icon */
+    }
+
+    .timeline-icon {
+        left: 8px; /* Adjust the icon to be centered on the line */
+        width: 25px; /* Smaller icon size for mobile */
+        height: 25px;
+    }
+
+    .timeline-content {
+        padding: 1rem; /* Reduce padding inside the content box for better spacing on mobile */
+    }
+}
+
+
+/*--------------------------*/
+/* Celebration Style */
+.celebration {
+    text-align: center;
+}
+
+.celebration .timeline-icon {
+    background-color: var(--accent);
+    color: white;
+    font-size: 2rem; /* Larger icon */
+    width: 40px;
+    height: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+}
+
+/* Confetti Pieces Animation */
+.confetti-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    background-color: #ff4081;
+    animation: confetti-fall 2s ease-in-out infinite;
+}
+
+.confetti-piece:nth-child(1) {
+    left: 20%;
+    animation-delay: 0.2s;
+}
+.confetti-piece:nth-child(2) {
+    left: 40%;
+    animation-delay: 0.4s;
+}
+.confetti-piece:nth-child(3) {
+    left: 60%;
+    animation-delay: 0.6s;
+}
+.confetti-piece:nth-child(4) {
+    left: 80%;
+    animation-delay: 0.8s;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(200px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Balloon Animation */
+.balloon {
+    position: absolute;
+    bottom: 0;
+    width: 50px;
+    animation: balloon-rise 4s infinite ease-in-out;
+}
+
+.balloon:nth-child(1) {
+    left: 30%;
+    animation-delay: 0.5s;
+}
+
+.balloon:nth-child(2) {
+    left: 70%;
+    animation-delay: 1s;
+}
+
+@keyframes balloon-rise {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-300px);
+        opacity: 0;
+    }
+}
+
+/* Bounce the Confetti Emoji */
+.confetti {
+    animation: bounce 1s infinite;
+}
+
+/* Bounce animation for the emoji */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Celebration content styling */
+.celebration-content {
+    background-color: #ffe9a0; /* Light celebratory background */
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-top: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+

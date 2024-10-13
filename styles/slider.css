@@ -46,11 +46,16 @@
 
 /* Number Text */
 .numbertext {
-  color: var(--text-light);
-  font-size: 1.2rem;
-  padding: 0.5rem;
+  color: var(--text-dark);
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   position: absolute;
   top: 0;
+  left: 0;
 }
 
 /* Next & Previous Buttons */

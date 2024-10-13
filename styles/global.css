@@ -103,18 +103,37 @@ header {
     .nav-links {
         display: none;
         flex-direction: column;
-        background: var(--primary-bg);
+        background-color: var(--primary-bg) !important;
         position: absolute;
         top: 100%;
         right: 0;
-        width: 50%;
+        width: 70%; 
+        height: 100vh; 
         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        z-index: 999; 
     }
 
     .nav-links.active {
         display: flex;
     }
+
+    .nav-links li a {
+        color: var(--text-dark); 
+        padding: 1rem;
+        text-align: center;
+        text-decoration: none;
+        display: block;
+        width: 100%;
+    }
+
+    .nav-links li a:hover {
+        background-color: var(--light-bg); 
+        color: var(--text-light); 
+    }
 }
+
+
+
 
 /* Hero Section */
 .hero {
