@@ -21,13 +21,25 @@ navLinkItems.forEach(function(link) {
 
 
 
-// Smooth scroll to anchor
+// Replace the existing smooth scroll code with this:
+
 document.addEventListener("DOMContentLoaded", () => {
+  const header = document.querySelector('header');
+  const headerHeight = header ? header.offsetHeight : 0;
+
   document.querySelectorAll("a[href^='#']").forEach(link => {
     link.addEventListener("click", e => {
       e.preventDefault();
-      const target = document.querySelector(link.getAttribute("href"));
-      target && window.scrollTo({ top: target.offsetTop, behavior: "smooth" });
+      const targetId = link.getAttribute("href");
+      const target = document.querySelector(targetId);
+      
+      if (target) {
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: "smooth"
+        });
+      }
     });
   });
 });

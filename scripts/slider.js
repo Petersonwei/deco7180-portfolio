@@ -1,68 +1,118 @@
 /**
- * Reference:
- * W3Schools. (2024). How to - Slideshow. https://www.w3schools.com/howto/howto_js_slideshow.asp
+ * Slideshow and Modal functionality
+ * References:
+ * - W3Schools. (2024). How to - Slideshow. https://www.w3schools.com/howto/howto_js_slideshow.asp
+ * - W3Schools. (2024). How to create a modal image gallery. https://www.w3schools.com/howto/howto_js_lightbox.asp
  */
-document.addEventListener("DOMContentLoaded", () => {
-    const slides = document.querySelectorAll(".mySlides");
-    let slideIndex = 0;
 
-    // Show the slide based on index
-    function showSlide(index) {
-        slideIndex = (index + slides.length) % slides.length; // Wrap index
-        slides.forEach((slide, i) => {
-            slide.style.display = i === slideIndex ? "block" : "none"; // Toggle visibility
+class Slideshow {
+    constructor(container) {
+        this.container = container;
+        this.slidesWrapper = container.querySelector('.slides-wrapper');
+        this.slides = this.slidesWrapper.querySelectorAll('.mySlides');
+        this.prevButton = container.querySelector('[data-slideshow-nav="prev"]');
+        this.nextButton = container.querySelector('[data-slideshow-nav="next"]');
+        this.currentIndex = 0;
+
+        this.updateSlideNumbers();
+        this.showSlide(this.currentIndex);
+        this.attachEventListeners();
+    }
+
+    updateSlideNumbers() {
+        this.slides.forEach((slide, index) => {
+            const numbertext = slide.querySelector('.numbertext');
+            if (numbertext) {
+                numbertext.textContent = `${index + 1} / ${this.slides.length}`;
+            }
         });
     }
 
-    // Initial display
-    showSlide(slideIndex);
-
-    // Next/previous navigation
-    document.querySelector(".next").addEventListener("click", () => {
-        showSlide(slideIndex + 1);
-    });
-
-    document.querySelector(".prev").addEventListener("click", () => {
-        showSlide(slideIndex - 1);
-    });
-
-    // Modal functionality
-    const modal = document.getElementById("imageModal");
-    const modalImg = document.getElementById("modalImage");
-    const modalClose = document.querySelector(".close");
-    const prevModal = document.querySelector(".prevModal");
-    const nextModal = document.querySelector(".nextModal");
-
-    // Open modal on image click
-    slides.forEach((slide, i) => {
-        slide.addEventListener("click", () => {
-            modal.style.display = "block";
-            modalImg.src = slide.querySelector("img").src; // Show the clicked image in modal
-            showSlide(i); // Sync slide index in modal
+    showSlide(index) {
+        this.slides.forEach((slide, i) => {
+            slide.style.display = i === index ? 'block' : 'none';
         });
-    });
+    }
 
-    // Close modal
-    modalClose.addEventListener("click", () => {
-        modal.style.display = "none";
-    });
+    nextSlide() {
+        this.currentIndex = (this.currentIndex + 1) % this.slides.length;
+        this.showSlide(this.currentIndex);
+    }
 
-    // Modal next/previous buttons
-    nextModal.addEventListener("click", () => {
-        showSlide(slideIndex + 1);
-        modalImg.src = slides[slideIndex].querySelector("img").src;
-    });
+    prevSlide() {
+        this.currentIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+        this.showSlide(this.currentIndex);
+    }
 
-    prevModal.addEventListener("click", () => {
-        showSlide(slideIndex - 1);
-        modalImg.src = slides[slideIndex].querySelector("img").src;
-    });
+    attachEventListeners() {
+        this.prevButton.addEventListener('click', () => this.prevSlide());
+        this.nextButton.addEventListener('click', () => this.nextSlide());
 
-    // Close modal on outside click
-    modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-            modal.style.display = "none";
+        // Add click event to open modal
+        this.slides.forEach((slide, index) => {
+            const img = slide.querySelector('img');
+            if (img) {
+                img.addEventListener('click', () => {
+                    openModal(img.src, this.container.dataset.slideshowId, index);
+                });
+            }
+        });
+    }
+}
+
+// Modal functionality
+let currentModalSlideshow = null;
+let currentModalIndex = 0;
+
+function openModal(imageSrc, slideshowId, index) {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    
+    modal.style.display = "flex";
+    modalImg.src = imageSrc;
+    
+    currentModalSlideshow = slideshowId;
+    currentModalIndex = index;
+}
+
+function closeModal() {
+    const modal = document.getElementById('imageModal');
+    modal.style.display = "none";
+}
+
+function changeModalImage(direction) {
+    const slideshow = document.querySelector(`[data-slideshow-id="${currentModalSlideshow}"]`);
+    const slides = slideshow.querySelectorAll('.mySlides');
+    
+    currentModalIndex = (currentModalIndex + direction + slides.length) % slides.length;
+    const newImage = slides[currentModalIndex].querySelector('img');
+    
+    if (newImage) {
+        const modalImg = document.getElementById('modalImage');
+        modalImg.src = newImage.src;
+    }
+}
+
+// Initialize all slideshows and set up modal
+document.addEventListener('DOMContentLoaded', () => {
+    const slideshowContainers = document.querySelectorAll('.slideshow-container');
+    slideshowContainers.forEach(container => new Slideshow(container));
+
+    // Modal setup
+    const modal = document.getElementById('imageModal');
+    const closeBtn = document.getElementsByClassName('close')[0];
+    const prevModalBtn = modal.querySelector('.prevModal');
+    const nextModalBtn = modal.querySelector('.nextModal');
+
+    closeBtn.onclick = closeModal;
+    prevModalBtn.onclick = () => changeModalImage(-1);
+    nextModalBtn.onclick = () => changeModalImage(1);
+
+    // Close modal when clicking outside the image
+    window.onclick = (event) => {
+        if (event.target === modal) {
+            closeModal();
         }
-    });
+    };
 });
 
