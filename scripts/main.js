@@ -5,9 +5,20 @@ import './skillSlider.js';
 import './timeLine.js';
 
 //Mobile Menu
-document.getElementById('menu-icon').addEventListener('click', function() {
-    document.querySelector('.nav-links').classList.toggle('active');
+document.getElementById("menu-icon").addEventListener("click", function() {
+  var navLinks = document.querySelector(".nav-links");
+  navLinks.classList.toggle("active");
 });
+
+// Close the menu when a nav link is clicked
+var navLinkItems = document.querySelectorAll(".nav-links a");
+navLinkItems.forEach(function(link) {
+  link.addEventListener("click", function() {
+      var navLinks = document.querySelector(".nav-links");
+      navLinks.classList.remove("active");
+  });
+});
+
 
 
 // Smooth scroll to anchor

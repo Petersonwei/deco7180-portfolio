@@ -119,6 +119,7 @@ header {
 
     .nav-links li a {
         color: var(--text-dark); 
+        font-size: 20px;
         padding: 1rem;
         text-align: center;
         text-decoration: none;
